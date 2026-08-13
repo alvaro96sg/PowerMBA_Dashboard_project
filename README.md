@@ -54,6 +54,44 @@ El proyecto se desarrolló siguiendo los siguientes pasos principales:
 * **Auditoría de Duplicados**: Validación y depuración previa para garantizar la integridad de los datos (0 registros duplicados encontrados).
 * **Tratamiento de Nulos**: La eliminación previa de registros del All-Star y columnas no relevantes resultó en la eliminación total de celdas vacías en el conjunto final.
 
+### 3.3. Creación de métricas
+
+* **TrueShooting%**: mide la eficiencia de anotación en baloncesto. Se define como:
+
+$$
+TrueShooting\% =\frac{Points}{2 \cdot ( FieldGoalsAttempted + 0.44 \cdot FreeThrowsAttempted)}
+$$
+
+* **EstimatedPossessions y EstimatedPossessionsOpponent**: número aproximado de veces que un equipo tiene el balón para atacar en un partido. Se define como:
+
+$$
+EP = FieldGoalsAttempted + 0.44 \cdot FreeThrowsAttempted + TurnOvers - OffensiveRebounds
+$$
+
+* **OffensiveRating**: cantidad de puntos que anota un equipo por cada 100 posesiones. Se define como:
+
+$$
+OR = \frac{Points}{EP}\cdot 100
+$$
+
+* **DefensiveRating**: cantidad de puntos que permite un equipo por cada 100 posesiones. Se define como:
+
+$$
+DR = \frac{OpponentPoints}{EPOpponent}\cdot 100
+$$
+
+* **NetRating**: diferencia de puntos anotados y permitidos por un equipo o jugador por cada 100 posesiones. Se define como:
+
+$$
+NetRating = OR - DR
+$$
+
+* **Assists/TurnOvers Ratio**: mide la eficacia de un equipo al manejar el balón. Se calcula dividiendo el número total de asistencias entre las pérdidas de balón (TurnOvers). Se define como:
+
+$$
+Assists/TurnOvers Ratio = \frac{Assists}{TurnOvers}
+$$
+
 ---
 
 # 4. Arquitectura del Libro de Excel
